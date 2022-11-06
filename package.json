@@ -31,6 +31,6 @@
     "prettier": "^2.7.1"
   },
   "bin": {
-    "rds": "./app.js"
+    "abs": "./app.js"
   }
 }
