@@ -33,3 +33,7 @@ Examples:
 - `abs admin website`
 - `abs facebook`
 - `abs gaming newsletter`
+
+## Known issues
+
+For link icons to appear in Alfred, you have to open first Anybox in list mode and scroll down on All category. This makes Anybox generate all link icons, by that, moving forward they will also appear in Alfred.
