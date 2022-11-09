@@ -2,6 +2,9 @@ const open = require('open');
 const colors = require('colors');
 const readline = require('readline');
 const db = require('./db.js');
+const path = require('path');
+const { homedir } = require('os');
+const { existsSync } = require('fs');
 
 const MAX_RESULTS = 8;
 
@@ -19,12 +22,12 @@ function cropText(text, length) {
 function searchBookmarks(searchTerm) {
   return db.client
     .all(
-      `SELECT Z_PK, ZTEXT, ZNAME FROM ZDOCUMENT WHERE
+      `SELECT Z_PK, ZTEXT, ZNAME, ZIDENTIFIER FROM ZDOCUMENT WHERE
         ZTEXT LIKE ? OR
         ZNAME LIKE ? OR
         ZLINKTITLE LIKE ? OR
         ZLINKDESCRIPTION LIKE ?
-        ORDER BY Z_PK DESC`,
+        ORDER BY Z_PK DESC LIMIT ${MAX_RESULTS}`,
       `%${searchTerm}%`,
       `%${searchTerm}%`,
       `%${searchTerm}%`,
@@ -86,7 +89,7 @@ function presentResults(results, searchTerm) {
   });
 }
 
-function presentAlfredResults(results) {
+async function presentAlfredResults(results) {
   results.splice(MAX_RESULTS, 99999);
 
   const items = results.map((link) => {
@@ -96,6 +99,7 @@ function presentAlfredResults(results) {
       title: link.ZNAME,
       subtitle: url,
       arg: url,
+      icon: getLinkIcon(link),
       quicklookurl: url,
       text: {
         copy: url,
@@ -118,6 +122,16 @@ function presentAlfredResults(results) {
   }
 
   return console.log(JSON.stringify({ items }));
+}
+
+function getLinkIcon(link) {
+  const pathName = path.resolve(
+    homedir(),
+    'Library/Containers/cc.anybox.Anybox/Data/Library/Caches/Documents/',
+    link.ZIDENTIFIER,
+    'favicon.png'
+  );
+  return existsSync(pathName) ? { path: pathName } : undefined;
 }
 
 module.exports = {

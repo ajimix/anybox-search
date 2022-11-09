@@ -33,6 +33,7 @@ if (!existsSync(filename)) {
 
 open({
   filename,
+  mode: sqlite3.OPEN_READONLY,
   driver: sqlite3.cached.Database,
 })
   .then((db) => {
