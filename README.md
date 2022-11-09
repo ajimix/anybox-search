@@ -4,7 +4,7 @@
 
 Allows to search Anybox bookmarks without the app running in both the terminal and in Alfred.
 
-**Note:** This app uses Anybox database directly. This is undocumented and not supported by Anybox. So use it at your own risk!
+**Note:** This app uses Anybox database directly (readonly mode). This is undocumented and not supported by Anybox. So use it at your own risk!
 
 **Terminal preview**
 
@@ -16,10 +16,12 @@ Allows to search Anybox bookmarks without the app running in both the terminal a
 
 ## Setup
 
+The app requires node. So make sure you have [NodeJS](https://nodejs.org) installed first.
+
 1. Run the following in the terminal: `npm i -g anybox-search`
-2. If you want to also use with Alfred, continue. Otherwise you are done.
-3. [Download and Open](https://github.com/ajimix/anybox-search/raw/master/Anybox%20Search.alfredworkflow) the alfred workflow.
-4. Follow Alfred instructions (or click Configure Workflow) to configure node path and app path.
+1. If you want to also use with Alfred, continue. Otherwise you are done.
+1. [Download and Open](https://github.com/ajimix/anybox-search/raw/master/Anybox%20Search.alfredworkflow) the alfred workflow.
+1. Follow Alfred instructions (or click Configure Workflow) to configure node path and app path.
 
 ## Usage
 
