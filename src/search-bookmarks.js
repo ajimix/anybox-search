@@ -23,12 +23,12 @@ function searchBookmarks(searchTerm) {
   return db.client
     .all(
       `SELECT Z_PK, ZTEXT, ZNAME, ZIDENTIFIER FROM ZDOCUMENT WHERE
-        ZTEXT LIKE ? OR
-        ZNAME LIKE ? OR
-        ZLINKTITLE LIKE ? OR
-        ZLINKDESCRIPTION LIKE ?
+        ZKIND = 'Link' AND (
+          ZTEXT LIKE ? OR
+          ZLINKTITLE LIKE ? OR
+          ZLINKDESCRIPTION LIKE ?
+        )
         ORDER BY Z_PK DESC LIMIT ${MAX_RESULTS}`,
-      `%${searchTerm}%`,
       `%${searchTerm}%`,
       `%${searchTerm}%`,
       `%${searchTerm}%`
