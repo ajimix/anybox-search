@@ -1,10 +1,10 @@
 # abs Anybox Search Client
 
-**Super fast Anybox search for the impatient.**
+**Super fast Anybox search for the terminal and Alfred.**
 
-This allows to search Anybox bookmarks database without even opening the app.
+Allows to search Anybox bookmarks without the app running in both the terminal and in Alfred.
 
-**Note:** This app uses Anybox database directly. This is undocumented and not supported by Anybox. So run it at your own risk!
+**Note:** This app uses Anybox database directly. This is undocumented and not supported by Anybox. So use it at your own risk!
 
 **Terminal preview**
 
@@ -16,13 +16,14 @@ This allows to search Anybox bookmarks database without even opening the app.
 
 ## Setup
 
-- Run the following in the terminal: `npm i -g anybox-search`
-
-For Alfred usage, [read below](#alfred).
+1. Run the following in the terminal: `npm i -g anybox-search`
+2. If you want to also use with Alfred, continue. Otherwise you are done.
+3. [Download and Open](https://github.com/ajimix/anybox-search/raw/master/Anybox%20Search.alfredworkflow) the alfred workflow.
+4. Follow Alfred instructions (or click Configure Workflow) to configure node path and app path.
 
 ## Usage
 
-Just type `abs whatever` and then type the number you want to open.
+Just type `abs anything` on the terminal or in Alfred.
 
 Examples:
 
@@ -30,14 +31,3 @@ Examples:
 - `abs admin website`
 - `abs facebook`
 - `abs gaming newsletter`
-
-## Alfred
-
-First install `abs` with `npm i -g anybox-search`
-
-- Open the alfred workflow from the Github project with Alfred.
-- Double click the first action to configure it and adapt the paths as necessary and save the changes.
-  - The first one is the node path, you can know your path by executing `which node` in the terminal.
-  - The second one is the path of abs, you can know the path by executing `which abs` in the terminal.
-
-To use, open Alfred and type `abs keyword` to search. For example `abs github`.
