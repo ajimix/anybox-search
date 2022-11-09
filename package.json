@@ -1,12 +1,12 @@
 {
   "name": "anybox-search",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Anybox search client for the terminal and Alfred without the need to have Anybox running",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "ajimix",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
