@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 const { loadDb } = require('./src/db.js');
-const { searchBookmarks, presentResults, presentAlfredResults } = require('./src/search-bookmarks.js');
+const { searchBookmarks, presentTerminalResults, presentAlfredResults } = require('./src/search-bookmarks.js');
 
 const args = process.argv.slice(2);
 let searchTerm = args.join(' ').trim();
 let isAlfred = false;
 
 if (searchTerm === '') {
-  console.error('Please specify a search term or --cache or --configure');
+  console.error('Please specify a search term');
   process.exit(1);
 }
 
@@ -23,7 +23,7 @@ loadDb()
       if (isAlfred) {
         return presentAlfredResults(results);
       }
-      return presentResults(results, searchTerm);
+      return presentTerminalResults(results, searchTerm);
     });
   })
   .catch((err) => {

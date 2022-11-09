@@ -41,7 +41,7 @@ function searchBookmarks(searchTerm) {
     });
 }
 
-function presentResults(results, searchTerm) {
+function presentTerminalResults(results, searchTerm) {
   if (results.length === 0) {
     return console.log(`No results found for search "${searchTerm}"`);
   }
@@ -136,6 +136,6 @@ function getLinkIcon(link) {
 
 module.exports = {
   searchBookmarks,
-  presentResults,
+  presentTerminalResults,
   presentAlfredResults,
 };
