@@ -1,6 +1,6 @@
 {
   "name": "anybox-search",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Anybox search client for the terminal and Alfred without the need to have Anybox running",
   "main": "app.js",
   "scripts": {
