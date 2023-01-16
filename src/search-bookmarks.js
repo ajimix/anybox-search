@@ -125,13 +125,20 @@ async function presentAlfredResults(results) {
 }
 
 function getLinkIcon(link) {
-  const pathName = path.resolve(
+  const firstPath = path.resolve(
     homedir(),
     'Library/Containers/cc.anybox.Anybox/Data/Library/Caches/Documents/',
-    link.ZIDENTIFIER,
-    'favicon.png'
+    link.ZIDENTIFIER
   );
-  return existsSync(pathName) ? { path: pathName } : undefined;
+  const pngIconPath = path.resolve(firstPath, 'favicon.png');
+  if (existsSync(pngIconPath)) {
+    return { path: pngIconPath };
+  }
+  const icoIconPath = path.resolve(firstPath, 'favicon.ico');
+  if (existsSync(icoIconPath)) {
+    return { path: icoIconPath };
+  }
+  return undefined;
 }
 
 module.exports = {

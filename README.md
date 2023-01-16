@@ -37,3 +37,5 @@ Examples:
 ## Known issues
 
 For link icons to appear in Alfred, you have to open first Anybox in list mode and scroll down on All category. This makes Anybox generate all link icons, by that, moving forward they will also appear in Alfred.
+
+If that still doesn't work, select all links in Anybox, right click, and select "Refresh Link".
