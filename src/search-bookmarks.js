@@ -26,6 +26,7 @@ function searchBookmarks(searchTerm) {
         ZKIND = 'Link' AND (
           ZTEXT LIKE ? OR
           ZLINKTITLE LIKE ? OR
+          ZCOMMENT LIKE ? OR
           ZLINKDESCRIPTION LIKE ?
         )
         ORDER BY Z_PK DESC LIMIT ${MAX_RESULTS}`,
