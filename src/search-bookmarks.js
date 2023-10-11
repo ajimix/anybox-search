@@ -1,4 +1,4 @@
-const open = require('open');
+const open = (...args) => import('open').then(({ default: open }) => open(...args));
 const colors = require('colors');
 const readline = require('readline');
 const db = require('./db.js');
@@ -32,7 +32,7 @@ function searchBookmarks(searchTerm) {
         ORDER BY Z_PK DESC LIMIT ${MAX_RESULTS}`,
       `%${searchTerm}%`,
       `%${searchTerm}%`,
-      `%${searchTerm}%`
+      `%${searchTerm}%`,
     )
     .catch((err) => {
       const error = new Error(err.message);
@@ -118,7 +118,7 @@ async function presentAlfredResults(results) {
             subtitle: 'Please type something else',
           },
         ],
-      })
+      }),
     );
   }
 
@@ -129,7 +129,7 @@ function getLinkIcon(link) {
   const firstPath = path.resolve(
     homedir(),
     'Library/Containers/cc.anybox.Anybox/Data/Library/Caches/Documents/',
-    link.ZIDENTIFIER
+    link.ZIDENTIFIER,
   );
   const pngIconPath = path.resolve(firstPath, 'favicon.png');
   if (existsSync(pngIconPath)) {

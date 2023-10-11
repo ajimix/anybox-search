@@ -10,9 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "open": "^8.4.0",
-    "sqlite": "^4.1.2",
-    "sqlite3": "^5.1.4"
+    "open": "^9.1.0",
+    "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6"
   },
   "keywords": [
     "anybox",
@@ -26,9 +26,9 @@
     "url": "https://github.com/ajimix/anybox-search.git"
   },
   "devDependencies": {
-    "eslint": "^8.32.0",
-    "eslint-config-prettier": "^8.6.0",
-    "prettier": "^2.8.3"
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3"
   },
   "bin": {
     "abs": "./app.js"
